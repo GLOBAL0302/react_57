@@ -2,17 +2,20 @@ import './App.css';
 import UserForm from './components/UserForm/UserForm';
 import { useState } from 'react';
 import { IUSER } from './types';
+import AllUsers from './components/AllUsers/AllUsers';
 
 const App = () => {
-  const [allUsers, setAllusers] = useState<IUSER[]>([]);
+  const [allUsers, setAllUsers] = useState<IUSER[]>([]);
+
+  const addUser = (value: IUSER) => {
+    setAllUsers((prevState) => [...prevState, value]);
+  };
 
   return (
     <>
       <div className="container-fluid row">
-        <UserForm />
-        <div className="allUsers col-8">
-          <p>allUsers</p>
-        </div>
+        <UserForm addUser={addUser} />
+        <AllUsers allUsers={allUsers} />
       </div>
     </>
   );

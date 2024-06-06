@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { IUSER } from '../../types';
+import { IFormUser, IUSER } from '../../types';
+interface Props {
+  addUser: (value: IUSER) => void;
+}
 
 const initialState = {
   name: '',
@@ -8,8 +11,8 @@ const initialState = {
   role: '',
 };
 
-const UserForm = () => {
-  const [userInfo, setUserInfo] = useState<IUSER>(initialState);
+const UserForm: React.FC<Props> = ({ addUser }) => {
+  const [userInfo, setUserInfo] = useState<IFormUser>(initialState);
 
   const onClickChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserInfo((prevState) => {
@@ -41,7 +44,7 @@ const UserForm = () => {
 
   const onSubmitForm = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log(userInfo);
+    addUser({ ...userInfo, id: Math.random() });
   };
 
   return (
