@@ -1,9 +1,4 @@
+import "./App.css";
 
-import './App.css'
-
-const App = () => (
-    <>
-    </>
-);
-
-export default App
+const App = () => <></>;
+export default App;
