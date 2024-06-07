@@ -5,13 +5,26 @@ interface Props {
   user: IUSER;
 }
 const User: React.FC<Props> = ({ user }) => {
-  console.log(user.active);
   return (
     <div className="border border-5 p-3 mb-3">
-      <p>Name: {user.name}</p>
-      <p>Email: {user.email}</p>
-      <p>active: {user.active}</p>
-      <p>Role: {user.role}</p>
+      <p>
+        <strong>Name: </strong> {user.name}
+      </p>
+      <p>
+        <strong>Email:</strong> {user.email}
+      </p>
+      <img
+        style={{ width: '50px' }}
+        src={
+          user.active
+            ? 'https://cdn-icons-png.freepik.com/256/5610/5610944.png?semt=ais_hybrid'
+            : 'https://cdn-icons-png.flaticon.com/512/169/169779.png'
+        }
+        alt="img"
+      />
+      <p>
+        <strong>Role: </strong> {user.role}
+      </p>
     </div>
   );
 };

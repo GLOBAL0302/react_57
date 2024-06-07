@@ -6,7 +6,7 @@ interface Props {
 }
 const AllUsers: React.FC<Props> = ({ allUsers }) => {
   return (
-    <div className="col-8">
+    <div className="col-4">
       {allUsers.map((user) => (
         <User key={user.id} user={user} />
       ))}

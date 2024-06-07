@@ -45,6 +45,7 @@ const UserForm: React.FC<Props> = ({ addUser }) => {
   const onSubmitForm = (event: React.FormEvent) => {
     event.preventDefault();
     addUser({ ...userInfo, id: Math.random() });
+    setUserInfo(initialState);
   };
 
   return (
@@ -52,11 +53,27 @@ const UserForm: React.FC<Props> = ({ addUser }) => {
       <form action="" className="d-flex flex-column gap-5" onSubmit={onSubmitForm}>
         <div className="form-group">
           <label htmlFor="name"></label>
-          <input onChange={onClickChange} className="form-control" name="name" id="name" type="text" placeholder="Name" />
+          <input
+            required
+            onChange={onClickChange}
+            className="form-control"
+            name="name"
+            id="name"
+            type="text"
+            value={userInfo.name}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="email"></label>
-          <input onChange={onClickChange} className="form-control" name="email" id="email" type="email" placeholder="Email" />
+          <input
+            required
+            onChange={onClickChange}
+            className="form-control"
+            name="email"
+            id="email"
+            type="email"
+            value={userInfo.email}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="active">Active</label>
